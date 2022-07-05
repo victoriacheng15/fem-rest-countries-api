@@ -3,10 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'airbnb',
-    'prettier',
-  ],
+  extends: ['airbnb', 'prettier'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -14,9 +11,9 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    'react', 'prettier',
-  ],
+  plugins: ['prettier'],
   rules: {
+    'prettier/prettier': ['error', { singleQuote: true, parser: 'flow' }],
+    "react/prop-types": 0
   },
 };
