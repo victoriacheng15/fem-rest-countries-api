@@ -4,7 +4,7 @@ import { IoMoonOutline, IoMoon } from 'react-icons/io5';
 export function DarkTheme() {
   return (
     <>
-      <IoMoonOutline /> <span>dark mode</span>
+      <IoMoon /> <span>dark mode</span>
     </>
   );
 }
@@ -12,7 +12,7 @@ export function DarkTheme() {
 export function LightTheme() {
   return (
     <>
-      <IoMoon /> <span>light mode</span>
+      <IoMoonOutline /> <span>light mode</span>
     </>
   );
 }
