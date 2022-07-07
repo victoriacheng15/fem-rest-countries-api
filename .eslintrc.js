@@ -11,9 +11,9 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['prettier'],
+  plugins: ['prettier', 'jest'],
   rules: {
     'prettier/prettier': ['error', { singleQuote: true, parser: 'flow' }],
-    "react/prop-types": 0
+    'react/prop-types': 0,
   },
 };
