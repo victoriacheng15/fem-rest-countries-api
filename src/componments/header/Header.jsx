@@ -11,7 +11,7 @@ function HeaderBar({ onClick, isDark }) {
         <button
           type="button"
           onClick={onClick}
-          className="flex items-center gap-2 text-sm font-semibold md:text-base"
+          className="flex items-center gap-2 p-2 text-sm font-semibold duration-300 ease-in-out border-2 border-gray-600 rounded-lg md:text-base hover:bg-darkBlue-900 hover:text-lightGray-700 dark:border-gray-300 dark:hover:bg-lightGray-700 dark:hover:text-darkBlue-900"
         >
           {isDark ? <DarkTheme /> : <LightTheme />}
         </button>
