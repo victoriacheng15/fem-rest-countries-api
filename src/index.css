@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .outline-style {
+    @apply outline-1 outline-dashed hover:outline-2 focus:outline-2 dark:outline-lightGray-800;
+  }
+}
