@@ -21,11 +21,11 @@ function Dropdown() {
     <select
       value={selected}
       onChange={handleSelect}
-      className="p-4 rounded-lg bg-lightGray-700 dark:bg-darkBlue-700 text-lightGray-900 dark:text-lightGray-700 outline-style"
+      className="p-4 rounded-lg outline-1 outline-dashed bg-lightGray-700 dark:bg-darkBlue-700 text-lightGray-900 dark:text-lightGray-700"
     >
       {regions.map((region) =>
         !region.id ? (
-          <option key={region.id} value={region.value}>
+          <option hidden key={region.id} value={region.value}>
             {region.label}
           </option>
         ) : (
