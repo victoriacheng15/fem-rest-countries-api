@@ -1,20 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Dropdown() {
   const regions = [
-    { label: 'Filter by Region', value: '' },
-    { label: 'Africa', value: 'Africa' },
-    { label: 'America', value: 'America' },
-    { label: 'Asia', value: 'Asia' },
-    { label: 'Europe', value: 'Europe' },
-    { label: 'Oceania', value: 'Oceania' },
+    { id: 0, label: 'Filter by Region', value: '' },
+    { id: 1, label: 'Africa', value: 'Africa' },
+    { id: 2, label: 'America', value: 'America' },
+    { id: 3, label: 'Asia', value: 'Asia' },
+    { id: 4, label: 'Europe', value: 'Europe' },
+    { id: 5, label: 'Oceania', value: 'Oceania' },
   ];
 
+  const [selected, setSelected] = useState('');
+  const handleSelect = (e) => {
+    const { value } = e.target;
+    console.log(value);
+    setSelected(value);
+  };
+
   return (
-    <select className="p-4 rounded-lg outline-1 outline-dashed bg-lightGray-700 dark:bg-darkBlue-700 text-lightGray-900 dark:text-lightGray-700">
-      {regions.map((region) => (
-        <option value={region.value}>{region.label}</option>
-      ))}
+    <select
+      value={selected}
+      onChange={handleSelect}
+      className="p-4 rounded-lg outline-1 outline-dashed bg-lightGray-700 dark:bg-darkBlue-700 text-lightGray-900 dark:text-lightGray-700"
+    >
+      {regions.map((region) =>
+        !region.id ? (
+          <option hidden key={region.id} value={region.value}>
+            {region.label}
+          </option>
+        ) : (
+          <option key={region.id} value={region.value}>
+            {region.label}
+          </option>
+        )
+      )}
     </select>
   );
 }
