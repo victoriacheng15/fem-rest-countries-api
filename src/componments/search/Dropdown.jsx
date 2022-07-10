@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function Dropdown() {
+function Dropdown({ region, handleSelect }) {
   const regions = [
     { id: 0, label: 'Filter by Region', value: '' },
     { id: 1, label: 'Africa', value: 'Africa' },
@@ -10,27 +10,21 @@ function Dropdown() {
     { id: 5, label: 'Oceania', value: 'Oceania' },
   ];
 
-  const [selected, setSelected] = useState('');
-  const handleSelect = (e) => {
-    const { value } = e.target;
-    console.log(value);
-    setSelected(value);
-  };
-
   return (
     <select
-      value={selected}
+      data-testid="dropdown"
+      value={region}
       onChange={handleSelect}
-      className="p-4 rounded-lg outline-1 outline-dashed bg-lightGray-700 dark:bg-darkBlue-700 text-lightGray-900 dark:text-lightGray-700"
+      className="w-64 p-4 rounded-lg outline-1 outline-dashed bg-lightGray-700 dark:bg-darkBlue-700 text-lightGray-900 dark:text-lightGray-700 md:w-48"
     >
-      {regions.map((region) =>
-        !region.id ? (
-          <option hidden key={region.id} value={region.value}>
-            {region.label}
+      {regions.map(({ id, value, label }) =>
+        !id ? (
+          <option hidden data-testid="option" key={id} value={value}>
+            {label}
           </option>
         ) : (
-          <option key={region.id} value={region.value}>
-            {region.label}
+          <option data-testid="option" key={id} value={value}>
+            {label}
           </option>
         )
       )}
