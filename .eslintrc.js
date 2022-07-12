@@ -15,5 +15,6 @@ module.exports = {
   rules: {
     'prettier/prettier': ['error', { singleQuote: true, parser: 'flow' }],
     'react/prop-types': 0,
+    'import/prefer-default-export': 0,
   },
 };
