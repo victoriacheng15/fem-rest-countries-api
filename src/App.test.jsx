@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
 import React from 'react';
-import App from './App';
+import { describe, expect, it } from 'vitest';
 import { render, screen, userEvent } from '../test-utils';
+import App from './App';
 
 describe('Simple working test', () => {
   it('have light mode text by default', () => {
@@ -14,7 +14,7 @@ describe('Simple working test', () => {
     render(<App />);
     const button = screen.getByRole('button');
     userEvent.click(button);
-    const buttonTextContent = screen.findByText(/dark mode/i)
+    const buttonTextContent = screen.findByText(/dark mode/i);
     expect(await buttonTextContent).toHaveTextContent('dark mode');
   });
 });

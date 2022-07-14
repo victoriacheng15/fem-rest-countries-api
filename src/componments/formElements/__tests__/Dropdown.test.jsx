@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
 import React from 'react';
-import Dropdown from '../Dropdown';
+import { describe, expect, it } from 'vitest';
 import { render, screen } from '../../../../test-utils';
+import Dropdown from '../Dropdown';
 
 describe('dropdown menu', () => {
   it('should have an select element', () => {

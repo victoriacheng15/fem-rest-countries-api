@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
 import React from 'react';
-import HeaderBar from '../Header';
+import { describe, expect, it } from 'vitest';
 import { render, screen } from '../../../../test-utils';
+import HeaderBar from '../Header';
 
 describe('header', () => {
   it('should have the h1 in the page', () => {
