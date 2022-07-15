@@ -9,6 +9,7 @@ function Countries({ countries, loading }) {
     <section className="grid items-center justify-center py-12 justify-items-center gap-14 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {countries.map(({ name, capital, region, flags, population }) => (
         <article
+          data-testid="card"
           key={name.common}
           className="flex flex-col w-[300px] h-[340px] gap-8 bg-lightGray-700 rounded-lg dark:bg-darkBlue-700 overflow-hidden shadow-lg dark:shadow-gray-700"
         >
