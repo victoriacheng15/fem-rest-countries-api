@@ -1,19 +1,21 @@
 import React from 'react';
-import { describe, expect, it } from 'vitest';
-import { render, screen, userEvent } from '../test-utils';
+import { beforeEach, describe, expect, it } from 'vitest';
+import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
 
-describe('Simple working test', () => {
-  it('have light mode text by default', () => {
+describe.only('Simple working test', () => {
+  beforeEach(() => {
     render(<App />);
+  });
+
+  it('have light mode text by default', () => {
     const button = screen.getByRole('button');
     expect(button).toHaveTextContent('light mode');
   });
 
   it('have dark mode text after button is fired', async () => {
-    render(<App />);
     const button = screen.getByRole('button');
-    userEvent.click(button);
+    fireEvent.click(button);
     const buttonTextContent = screen.findByText(/dark mode/i);
     expect(await buttonTextContent).toHaveTextContent('dark mode');
   });
