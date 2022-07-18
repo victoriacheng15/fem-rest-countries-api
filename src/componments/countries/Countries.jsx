@@ -10,6 +10,7 @@ function Countries({ countries, loading }) {
     <section className="grid items-center justify-center py-12 justify-items-center gap-14 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {countries.map(({ name, capital, region, flags, population }) => (
         <CountryCard
+          key={name.common}
           name={name.official}
           countryCaptial={capital}
           region={region}

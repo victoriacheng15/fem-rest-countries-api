@@ -20,7 +20,7 @@ function Main() {
   const idxOfFirstCountry = idxOfLastCountry - countriesPerPage;
   const currentCountries = countries.slice(idxOfFirstCountry, idxOfLastCountry);
 
-  const paginate = (pageNum) => setCurrentPage(pageNum);
+  // const paginate = (pageNum) => setCurrentPage(pageNum);
 
   return (
     <main className="py-8 bg-lightGray-800 dark:bg-darkBlue-800">
@@ -31,9 +31,11 @@ function Main() {
         </form>
         <Countries countries={currentCountries} loading={loading} />
         <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
           countriesPerPage={countriesPerPage}
           totalCountries={countries.length}
-          paginate={paginate}
+          // paginate={paginate}
         />
       </div>
     </main>
