@@ -14,27 +14,27 @@ function Pagination({
   const setPage = new Array(getPages + 1).keys();
   const pageNumbers = [...setPage].slice(1);
 
-  const { length } = pageNumbers;
-  const SIXTEEN = length - 5;
+  const total = pageNumbers.length;
 
   const handleNext = () => {
-    if (currentPage <= Math.floor(5 / 2)) {
+    const condition = currentPage <= Math.floor(5 / 2);
+    if (condition) {
       setCurrentPage(currentPage + 1);
       setStartPage(0);
       setEndPage(5);
     } else {
-      setCurrentPage(currentPage >= length ? length : currentPage + 1);
-      setStartPage(currentPage >= SIXTEEN ? SIXTEEN : startPage + 1);
-      setEndPage(currentPage >= length ? length : endPage + 1);
+      setCurrentPage(currentPage >= total ? total : currentPage + 1);
+      setStartPage(currentPage > 18 ? 16 : startPage + 1);
+      setEndPage(currentPage > 18 ? total : endPage + 1);
     }
   };
 
   const handlePrev = () => {
-    const condition = currentPage >= 19;
+    const condition = currentPage > 19;
     if (condition) {
       setCurrentPage(currentPage - 1);
-      setStartPage(condition ? SIXTEEN : startPage - 1);
-      setEndPage(condition ? length : endPage - 1);
+      setStartPage(condition ? 16 : startPage - 1);
+      setEndPage(condition ? total : endPage - 1);
     } else {
       setCurrentPage(currentPage <= 1 ? 1 : currentPage - 1);
       setStartPage(startPage <= 0 ? 0 : startPage - 1);
