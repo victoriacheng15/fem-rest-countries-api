@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Dropdown({ region, onChange }) {
+function Dropdown({ value, onChange }) {
   const regions = [
     { id: 0, label: 'Filter by Region', value: 'All' },
     { id: 1, label: 'Africa', value: 'Africa' },
@@ -13,7 +13,7 @@ function Dropdown({ region, onChange }) {
   return (
     <select
       data-testid="dropdown"
-      value={region}
+      value={value}
       onChange={onChange}
       className="w-64 p-4 rounded-lg outline-1 outline-dashed bg-lightGray-700 dark:bg-darkBlue-700 text-lightGray-900 dark:text-lightGray-700 md:w-48"
     >
