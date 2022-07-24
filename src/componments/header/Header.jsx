@@ -4,7 +4,7 @@ import { DarkTheme, LightTheme } from './Theme';
 function HeaderBar({ onClick, isDark }) {
   return (
     <header className="py-16 bg-lightGray-700 dark:bg-darkBlue-700 text-darkBlue-900 dark:text-lightGray-700">
-      <div className="flex items-center justify-between w-11/12 mx-auto">
+      <div className="flex items-center justify-between w-11/12 mx-auto max-w-7xl">
         <h1
           data-testid="heading"
           className="text-[20px] font-semibold md:text-[30px]"
