@@ -14,7 +14,7 @@ describe('main content', () => {
   });
 
   it('should rendered dropdown menu"', () => {
-    const dropdownMen = screen.getByDisplayValue(/filter by region/i);
+    const dropdownMen = screen.getByDisplayValue(/Select region/i);
     expect(dropdownMen).toBeInTheDocument();
   });
 });
