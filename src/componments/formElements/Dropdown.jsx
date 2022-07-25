@@ -2,12 +2,13 @@ import React from 'react';
 
 function Dropdown({ optionValue, onChange }) {
   const regions = [
-    { id: 0, label: 'All', value: '' },
-    { id: 1, label: 'Africa', value: 'Africa' },
-    { id: 2, label: 'America', value: 'America' },
-    { id: 3, label: 'Asia', value: 'Asia' },
-    { id: 4, label: 'Europe', value: 'Europe' },
-    { id: 5, label: 'Oceania', value: 'Oceania' },
+    { id: 0, label: 'Select Region', value: '' },
+    { id: 1, label: 'All', value: '' },
+    { id: 2, label: 'Africa', value: 'Africa' },
+    { id: 3, label: 'America', value: 'America' },
+    { id: 4, label: 'Asia', value: 'Asia' },
+    { id: 5, label: 'Europe', value: 'Europe' },
+    { id: 6, label: 'Oceania', value: 'Oceania' },
   ];
 
   return (

@@ -14,6 +14,6 @@ describe('dropdown menu', () => {
 
   it('should have length of 6', () => {
     const optionElements = screen.getAllByTestId('option');
-    expect(optionElements.length).toBe(6);
+    expect(optionElements).toHaveLength(7);
   });
 });
