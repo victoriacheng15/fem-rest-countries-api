@@ -7,7 +7,7 @@ function Countries({ countries, loading }) {
   }
 
   return (
-    <section className="flex flex-wrap gap-8 justify-evenly">
+    <section className="flex flex-wrap justify-around gap-8">
       {countries.map(({ name, capital, region, flags, population }) => (
         <CountryCard
           key={name.common}
