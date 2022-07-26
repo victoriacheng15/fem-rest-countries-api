@@ -10,33 +10,36 @@ function Pagination({
 }) {
   const [startPage, setStartPage] = useState(0);
   const [endPage, setEndPage] = useState(5);
-  const getPages = Math.ceil(totalCountries / countriesPerPage);
-  const setPage = new Array(getPages + 1).keys();
+  const totalPage = Math.ceil(totalCountries / countriesPerPage); // 21
+  const setPage = new Array(totalPage + 1).keys();
   const pageNumbers = [...setPage].slice(1);
+  const currentPages = pageNumbers.slice(startPage, endPage);
+  // console.log({ totalPage, currentPage, startPage, endPage });
 
-  const total = pageNumbers.length;
-
-  const handleNext = () => {
-    const condition = currentPage <= Math.floor(5 / 2);
+  const handleNext = (page) => {
+    const FIVE = currentPages.length;
+    const condition = page <= Math.floor(FIVE / 2);
     if (condition) {
-      setCurrentPage(currentPage + 1);
+      setCurrentPage(page + 1);
       setStartPage(0);
       setEndPage(5);
     } else {
-      setCurrentPage(currentPage >= total ? total : currentPage + 1);
-      setStartPage(currentPage > 18 ? 16 : startPage + 1);
-      setEndPage(currentPage > 18 ? total : endPage + 1);
+      setCurrentPage(page >= totalPage ? totalPage : page + 1);
+      // setStartPage(page >= totalPage - 5 ? startPage + 1 : startPage + 1);
+      // setEndPage(page >= totalPage - 5 ? endPage + 1 : endPage + 1);
+      setStartPage(startPage + 1);
+      setEndPage(endPage + 1);
     }
   };
 
-  const handlePrev = () => {
-    const condition = currentPage > 19;
+  const handlePrev = (page) => {
+    const condition = page > totalPage - 2;
     if (condition) {
-      setCurrentPage(currentPage - 1);
-      setStartPage(condition ? 16 : startPage - 1);
-      setEndPage(condition ? total : endPage - 1);
+      setCurrentPage(page - 1);
+      setStartPage(condition ? totalPage - 5 : startPage - 1);
+      setEndPage(condition ? totalPage : endPage - 1);
     } else {
-      setCurrentPage(currentPage <= 1 ? 1 : currentPage - 1);
+      setCurrentPage(page <= 1 ? 1 : page - 1);
       setStartPage(startPage <= 0 ? 0 : startPage - 1);
       setEndPage(endPage <= 5 ? 5 : endPage - 1);
     }
@@ -44,11 +47,11 @@ function Pagination({
 
   return (
     <section className="flex flex-wrap items-center justify-center gap-4">
-      <Button dataType="prev" onClick={handlePrev}>
+      <Button dataType="prev" onClick={() => handlePrev(currentPage)}>
         <RiArrowDropLeftLine />
       </Button>
       <div className="flex items-center gap-8">
-        {pageNumbers.slice(startPage, endPage).map((num) =>
+        {currentPages.map((num) =>
           currentPage === num ? (
             <span
               className="grid w-16 text-2xl font-bold border-4 aspect-square dark:text-lightGray-800 border-lightGray-900 place-items-center dark:border-lightGray-700"
@@ -66,7 +69,7 @@ function Pagination({
           )
         )}
       </div>
-      <Button dataType="next" onClick={handleNext}>
+      <Button dataType="next" onClick={() => handleNext(currentPage)}>
         <RiArrowDropRightLine />
       </Button>
     </section>

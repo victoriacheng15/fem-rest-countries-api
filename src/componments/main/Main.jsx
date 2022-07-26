@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import InputElement from '../formElements/InputElement';
 import Dropdown from '../formElements/Dropdown';
 import Countries from '../countries/Countries';
-// import Pagination from '../pagination/Pagination';
+import Pagination from '../pagination/Pagination';
 import useFetchCountries from '../../hook/useFetchApi';
 
 function Main() {
   const { countries, loading, list, setList } = useFetchCountries();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectRegion, setSelectRegion] = useState('');
+  const [countriesPerPage] = useState(12);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const handleSearch = (searchValue) => {
     const value = searchValue.toLowerCase();
@@ -30,10 +32,14 @@ function Main() {
     setList(selectFiltered);
   };
 
+  const idxOfLastCountries = currentPage * countriesPerPage;
+  const idxOfFirstCountries = idxOfLastCountries - countriesPerPage;
+  const currentCountries = list.slice(idxOfFirstCountries, idxOfLastCountries);
+
   return (
     <main className="py-8 bg-lightGray-800 dark:bg-darkBlue-800">
       <div className="w-11/12 mx-auto max-w-7xl">
-        <form className="flex flex-col gap-12 mb-12 md:flex-row md:justify-between">
+        <form className="flex flex-col gap-12 md:flex-row md:justify-between">
           <InputElement
             value={searchTerm}
             onChange={(e) => handleSearch(e.target.value)}
@@ -43,7 +49,13 @@ function Main() {
             onChange={(e) => handleSelect(e.target.value)}
           />
         </form>
-        <Countries countries={list} loading={loading} />
+        <Countries countries={currentCountries} loading={loading} />
+        <Pagination
+          countriesPerPage={countriesPerPage}
+          totalCountries={list.length}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       </div>
     </main>
   );
