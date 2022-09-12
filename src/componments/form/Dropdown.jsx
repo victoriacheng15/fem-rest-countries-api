@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import CountriesContext from '../../context/CountriesContext';
 
-function Dropdown({ optionValue, onChange }) {
+function Dropdown() {
+  const { selectRegion, handleSelect } = useContext(CountriesContext);
+
   const regions = [
     { id: 0, label: 'Select Region', value: '' },
     { id: 1, label: 'All', value: '' },
@@ -14,8 +17,8 @@ function Dropdown({ optionValue, onChange }) {
   return (
     <select
       data-testid="dropdown"
-      value={optionValue}
-      onChange={onChange}
+      value={selectRegion}
+      onChange={(e) => handleSelect(e.target.value)}
       className="w-64 p-4 rounded-lg outline-1 outline-dashed bg-lightGray-700 dark:bg-darkBlue-700 text-lightGray-900 dark:text-lightGray-700 md:w-48"
     >
       {regions.map(({ id, value, label }) => (
