@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState } from 'react';
 import useFetchCountries from '../hook/useFetchApi';
 
 const CountriesContext = createContext();
@@ -36,7 +36,6 @@ export function CountriesProvider({ children }) {
   return (
     <CountriesContext.Provider
       value={{
-        countries,
         loading,
         list,
         searchTerm,
