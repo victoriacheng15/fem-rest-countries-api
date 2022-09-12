@@ -5,10 +5,14 @@ const CountriesContext = createContext();
 
 export function CountriesProvider({ children }) {
   const { countries, loading, list, setList } = useFetchCountries();
+  // form
   const [searchTerm, setSearchTerm] = useState('');
   const [selectRegion, setSelectRegion] = useState('');
+  // pagination
   const [countriesPerPage] = useState(12);
   const [currentPage, setCurrentPage] = useState(1);
+  const [startPage, setStartPage] = useState(0);
+  const [endPage, setEndPage] = useState(5);
 
   const handleSearch = (searchValue) => {
     const value = searchValue.toLowerCase();
@@ -40,10 +44,16 @@ export function CountriesProvider({ children }) {
         list,
         searchTerm,
         selectRegion,
-        setCurrentPage,
         handleSearch,
         handleSelect,
+        currentPage,
+        setCurrentPage,
+        countriesPerPage,
         currentCountries,
+        startPage,
+        setStartPage,
+        endPage,
+        setEndPage,
       }}
     >
       {children}
