@@ -3,7 +3,7 @@ import CountryCard from './CountryCard';
 import CountriesContext from '../../context/CountriesContext';
 
 function Countries() {
-  const { countries, loading } = useContext(CountriesContext);
+  const { list, loading } = useContext(CountriesContext);
 
   if (loading) {
     return <h2>loading...</h2>;
@@ -11,7 +11,7 @@ function Countries() {
 
   return (
     <section className="flex flex-wrap items-center justify-around gap-8 my-12 h-max">
-      {countries.map(({ name, capital, region, flags, population }) => (
+      {list.map(({ name, capital, region, flags, population }) => (
         <CountryCard
           key={name.common}
           name={name.official}
