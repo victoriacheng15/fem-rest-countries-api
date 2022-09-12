@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import CountryCard from './CountryCard';
+import CountriesContext from '../../context/CountriesContext';
 
-function Countries({ countries, loading }) {
+function Countries() {
+  const { countries, loading } = useContext(CountriesContext);
+
   if (loading) {
     return <h2>loading...</h2>;
   }
