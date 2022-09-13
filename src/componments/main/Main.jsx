@@ -15,7 +15,7 @@ function Main() {
             path="/"
             element={<Countries countriesList={currentCountries} />}
           />
-          <Route path="/country/:name" element={<CountryPage />} />
+          <Route path="/country/:id" element={<CountryPage />} />
         </Routes>
       </div>
     </main>
