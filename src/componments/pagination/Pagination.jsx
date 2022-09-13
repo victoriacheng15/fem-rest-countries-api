@@ -46,7 +46,7 @@ function Pagination({ countriesPerPage, totalCountries }) {
 
   return (
     <section className="flex flex-wrap items-center justify-center gap-4">
-      <Button dataType="prev" onClick={() => handlePrev(currentPage)}>
+      <Button onClick={() => handlePrev(currentPage)}>
         <RiArrowDropLeftLine />
       </Button>
       <div className="flex items-center justify-center gap-8 w-[460px]">
@@ -68,7 +68,7 @@ function Pagination({ countriesPerPage, totalCountries }) {
           )
         )}
       </div>
-      <Button dataType="next" onClick={() => handleNext(currentPage)}>
+      <Button onClick={() => handleNext(currentPage)}>
         <RiArrowDropRightLine />
       </Button>
     </section>
