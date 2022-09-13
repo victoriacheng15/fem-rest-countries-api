@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import useFetchCountries from '../hook/useFetchApi';
+import useFetchCountries from '../hook/useFetchCountries';
 
 const CountriesContext = createContext();
 
