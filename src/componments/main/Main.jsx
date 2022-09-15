@@ -14,7 +14,6 @@ function Main() {
           <Route
             path="/"
             element={<Countries countriesList={currentCountries} />}
-          />
           <Route path="/country/:code" element={<CountryPage />} />
         </Routes>
       </div>
