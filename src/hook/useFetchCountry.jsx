@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import url from './fetchUrls';
 
 const useFetchCountry = (code) => {
-  const [country, setCountry] = useState('');
+  const [country, setCountry] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
