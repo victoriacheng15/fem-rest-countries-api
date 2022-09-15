@@ -1,65 +1,22 @@
-import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Form from '../form/Form';
-import Countries from '../countries/Countries';
-import Pagination from '../pagination/Pagination';
-import useFetchCountries from '../../hook/useFetchApi';
+import React, { useContext } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Countries from '../../pages/Countries';
+import CountriesContext from '../../context/CountriesContext';
+import CountryPage from '../../pages/CountryPage';
 
 function Main() {
-  const { countries, loading, list, setList } = useFetchCountries();
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectRegion, setSelectRegion] = useState('');
-  const [countriesPerPage] = useState(12);
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const handleSearch = (searchValue) => {
-    const value = searchValue.toLowerCase();
-    setSearchTerm(value);
-    const searchFiltered = countries.filter(({ name }) => {
-      const countryName = name.official.toLowerCase();
-      return countryName.includes(value);
-    });
-    setList(searchFiltered);
-  };
-
-  const handleSelect = (selectValue) => {
-    setSelectRegion(selectValue);
-    const selectFiltered = countries.filter(({ region }) =>
-      region.includes(selectValue)
-    );
-
-    setList(selectFiltered);
-  };
-
-  const idxOfLastCountries = currentPage * countriesPerPage;
-  const idxOfFirstCountries = idxOfLastCountries - countriesPerPage;
-  const currentCountries = list.slice(idxOfFirstCountries, idxOfLastCountries);
+  const { currentCountries } = useContext(CountriesContext);
 
   return (
     <main className="py-8 bg-lightGray-800 dark:bg-darkBlue-800">
       <div className="w-11/12 mx-auto max-w-7xl">
-        <Form
-          searchValue={searchTerm}
-          onChangeSearch={(e) => handleSearch(e.target.value)}
-          optionValue={selectRegion}
-          onChangeSelect={(e) => handleSelect(e.target.value)}
-        />
         <Routes>
           <Route
             path="/"
-            element={
-              <Countries countries={currentCountries} loading={loading} />
-            }
+            element={<Countries countriesList={currentCountries} />}
           />
-          {/* <Route path=":name" element={<Country />} /> */}
+          <Route path="/country/:code" element={<CountryPage />} />
         </Routes>
-        {/* <Countries countries={currentCountries} loading={loading} /> */}
-        <Pagination
-          countriesPerPage={countriesPerPage}
-          totalCountries={list.length}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
       </div>
     </main>
   );

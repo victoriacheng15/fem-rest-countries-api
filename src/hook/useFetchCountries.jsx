@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import url from './fetchUrls';
 
 const useFetchCountries = () => {
   const [countries, setCountries] = useState([]);
@@ -7,9 +8,9 @@ const useFetchCountries = () => {
 
   useEffect(() => {
     (async function () {
-      const url = 'https://restcountries.com/v3.1/all';
+      const address = url.all;
       setLoading(true);
-      const data = await (await fetch(url)).json();
+      const data = await (await fetch(address)).json();
       setCountries(data);
       setList(data);
       setLoading(false);
