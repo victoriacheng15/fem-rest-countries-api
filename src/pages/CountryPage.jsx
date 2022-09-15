@@ -1,11 +1,15 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import useFetchCountry from '../hook/useFetchCountry';
+import Spinner from '../componments/countries/Spinner';
 
 function CountryPage() {
-  const { id } = useParams();
-  const { country, loading } = useFetchCountry(id);
-  // console.log({ id, country, loading });
+  const { code } = useParams();
+  const { country, loading } = useFetchCountry(code);
+  const getInput = (input) => Object.values(input);
+
+  if (loading) return <Spinner />;
+
   return (
     <>
       <Link to="/">Back</Link>
@@ -20,8 +24,8 @@ function CountryPage() {
             capital,
             tld,
             currencies,
-            languages,
             borders,
+            languages,
           }) => (
             <article key={name.common}>
               <img src={flags.png} alt={name.common} />
@@ -33,13 +37,29 @@ function CountryPage() {
                 <p>Capital: {capital}</p>
               </div>
               <div>
-                <p>Top LeveL domain: {tld}</p>
-                <p>currencies: {Object.keys(currencies)}</p>
-                <p>languages: {languages.name}</p>
+                <p>Top LeveL domain: {tld.map((elm) => elm).join(', ')}</p>
+                <p>
+                  currencies:{' '}
+                  {getInput(currencies)
+                    .map((currency) => currency.name)
+                    .join(', ')}
+                </p>
+                <p>
+                  languages:{' '}
+                  {getInput(languages)
+                    .map((lang) => lang)
+                    .join(', ')}
+                </p>
               </div>
               <div>
                 <h3>Border Countries:</h3>
-                <p>{borders.map((item) => item)}</p>
+                <div className="bg-blue-200 flex gap-4">
+                  {borders.map((border) => (
+                    <button key={border} type="button">
+                      {border}
+                    </button>
+                  ))}
+                </div>
               </div>
             </article>
           )
