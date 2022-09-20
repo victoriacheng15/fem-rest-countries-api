@@ -1,10 +1,10 @@
-import React, { createContext, useState } from 'react';
-import useFetchCountries from '../hook/useFetchCountries';
+import React, { createContext, useState, useContext } from 'react';
+import CountriesContext from './CountriesContext';
 
 const PaginationContext = createContext();
 
 export function PaginationProvider({ children }) {
-  const { list } = useFetchCountries();
+  const { list } = useContext(CountriesContext);
 
   const [countriesPerPage] = useState(12);
   const [currentPage, setCurrentPage] = useState(1);
