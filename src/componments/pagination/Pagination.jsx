@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { RiArrowDropLeftLine, RiArrowDropRightLine } from 'react-icons/ri';
 import Button from '../button/Button';
-import CountriesContext from '../../context/CountriesContext';
+import PaginationContext from '../../context/PaginationContext';
 
 function Pagination({ countriesPerPage, totalCountries }) {
   const {
@@ -11,7 +11,7 @@ function Pagination({ countriesPerPage, totalCountries }) {
     setStartPage,
     endPage,
     setEndPage,
-  } = useContext(CountriesContext);
+  } = useContext(PaginationContext);
 
   const totalPages = Math.ceil(totalCountries / countriesPerPage); // 21
   const pageNumbers = [...new Array(totalPages + 1).keys()].slice(1);
