@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import CountryCard from '../componments/countries/CountryCard';
+import CountryCard from '../componments/CountryCard';
 import CountriesContext from '../context/CountriesContext';
-import Pagination from '../componments/pagination/Pagination';
-import Spinner from '../componments/countries/Spinner';
-import Form from '../componments/form/Form';
+import Pagination from '../componments/Pagination';
+import Spinner from '../componments/CountryCard/Spinner';
+import Form from '../componments/Form';
 import PaginationContext from '../context/PaginationContext';
 
 function Countries() {

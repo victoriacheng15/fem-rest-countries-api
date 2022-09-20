@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { IoArrowBackOutline } from 'react-icons/io5';
 import useFetchCountry from '../hook/useFetchCountry';
-import Spinner from '../componments/countries/Spinner';
+import Spinner from '../componments/CountryCard/Spinner';
 import Paragraph from '../componments/Paragraph';
 
 function CountryPage() {
