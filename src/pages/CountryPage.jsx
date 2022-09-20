@@ -53,7 +53,7 @@ function CountryPage() {
               </div>
               <div>
                 <h3>Border Countries:</h3>
-                <div className="bg-blue-200 flex gap-4">
+                <div className="flex gap-4 bg-blue-200">
                   {borders.map((border) => (
                     <button key={border} type="button">
                       {border}

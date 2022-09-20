@@ -12,11 +12,11 @@ function CountryCard({
 }) {
   return (
     <Link
-      className="h-[375px] flex flex-col gap-4 overflow-hidden rounded-lg shadow-lg basis-72 grow-1 bg-lightGray-800 dark:bg-darkBlue-700 shadow-gray-600 dark:shadow-gray-600"
+      className="grow-1 flex h-[375px] basis-72 flex-col gap-4 overflow-hidden rounded-lg bg-lightGray-800 shadow-lg shadow-gray-600 dark:bg-darkBlue-700 dark:shadow-gray-600"
       to={`/country/${dataName}`}
     >
       <article>
-        <img src={flags} alt={alt} className="h-[180px] w-full object-fit" />
+        <img src={flags} alt={alt} className="object-fit h-[180px] w-full" />
         <div className="p-4">
           <h2 className="pb-2 font-extrabold text-darkBlue-900 dark:text-lightGray-800">
             {name}

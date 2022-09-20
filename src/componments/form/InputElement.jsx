@@ -11,7 +11,7 @@ function InputElement() {
       <input
         value={searchTerm}
         onChange={(e) => handleSearch(e.target.value)}
-        className="w-full h-full p-4 pl-8 rounded-lg text-lightGray-900 dark:bg-darkBlue-700 dark:placeholder-lightGray-700 outline-style md:w-[480px]"
+        className="outline-style h-full w-full rounded-lg p-4 pl-8 text-lightGray-900 dark:bg-darkBlue-700 dark:placeholder-lightGray-700 md:w-[480px]"
         type="text"
         placeholder="Search for a country..."
       />

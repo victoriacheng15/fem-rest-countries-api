@@ -3,8 +3,8 @@ import { DarkTheme, LightTheme } from './Theme';
 
 function HeaderBar({ onClick, isDark }) {
   return (
-    <header className="py-16 bg-lightGray-700 dark:bg-darkBlue-700 text-darkBlue-900 dark:text-lightGray-700">
-      <div className="flex items-center justify-between w-11/12 mx-auto max-w-7xl">
+    <header className="bg-lightGray-700 py-16 text-darkBlue-900 dark:bg-darkBlue-700 dark:text-lightGray-700">
+      <div className="mx-auto flex w-11/12 max-w-7xl items-center justify-between">
         <h1
           data-testid="heading"
           className="text-[20px] font-semibold md:text-[30px]"
@@ -14,7 +14,7 @@ function HeaderBar({ onClick, isDark }) {
         <button
           type="button"
           onClick={onClick}
-          className="flex items-center gap-2 p-2 text-sm font-semibold duration-300 ease-in-out border-2 border-gray-600 rounded-lg md:text-base hover:bg-darkBlue-900 hover:text-lightGray-700 dark:border-gray-300 dark:hover:bg-lightGray-700 dark:hover:text-darkBlue-900"
+          className="flex items-center gap-2 rounded-lg border-2 border-gray-600 p-2 text-sm font-semibold duration-300 ease-in-out hover:bg-darkBlue-900 hover:text-lightGray-700 dark:border-gray-300 dark:hover:bg-lightGray-700 dark:hover:text-darkBlue-900 md:text-base"
         >
           {isDark ? <DarkTheme /> : <LightTheme />}
         </button>

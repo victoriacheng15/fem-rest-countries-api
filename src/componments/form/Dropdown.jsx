@@ -19,7 +19,7 @@ function Dropdown() {
       data-testid="dropdown"
       value={selectRegion}
       onChange={(e) => handleSelect(e.target.value)}
-      className="w-64 p-4 rounded-lg outline-1 outline-dashed bg-lightGray-700 dark:bg-darkBlue-700 text-lightGray-900 dark:text-lightGray-700 md:w-48"
+      className="w-64 rounded-lg bg-lightGray-700 p-4 text-lightGray-900 outline-dashed outline-1 dark:bg-darkBlue-700 dark:text-lightGray-700 md:w-48"
     >
       {regions.map(({ id, value, label }) => (
         <option data-testid="option" key={id} value={value}>
