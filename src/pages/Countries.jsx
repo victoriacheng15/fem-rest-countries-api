@@ -7,8 +7,8 @@ import Form from '../componments/form/Form';
 import PaginationContext from '../context/PaginationContext';
 
 function Countries() {
-  const { loading, list } = useContext(CountriesContext);
-  const { countriesPerPage, currentCountries } = useContext(PaginationContext);
+  const { loading } = useContext(CountriesContext);
+  const { currentCountries } = useContext(PaginationContext);
 
   if (loading) return <Spinner />;
 
@@ -31,10 +31,7 @@ function Countries() {
           )
         )}
       </section>
-      <Pagination
-        countriesPerPage={countriesPerPage}
-        totalCountries={list.length}
-      />
+      <Pagination />
     </>
   );
 }
