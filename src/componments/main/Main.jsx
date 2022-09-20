@@ -8,8 +8,8 @@ function Main() {
   const { currentCountries } = useContext(CountriesContext);
 
   return (
-    <main className="py-8 bg-lightGray-800 dark:bg-darkBlue-800">
-      <div className="w-11/12 mx-auto max-w-7xl">
+    <main className="bg-lightGray-800 py-8 dark:bg-darkBlue-800">
+      <div className="mx-auto w-11/12 max-w-7xl">
         <Routes>
           <Route
             path="/"

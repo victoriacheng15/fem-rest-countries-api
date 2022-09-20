@@ -13,7 +13,7 @@ function Countries({ countriesList }) {
   return (
     <>
       <Form />
-      <section className="flex flex-wrap items-center justify-around gap-8 my-12 h-max">
+      <section className="my-12 flex h-max flex-wrap items-center justify-around gap-8">
         {countriesList.map(
           ({ name, capital, region, flags, population, cca3 }) => (
             <CountryCard

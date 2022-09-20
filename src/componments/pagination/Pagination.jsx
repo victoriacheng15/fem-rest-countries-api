@@ -49,18 +49,18 @@ function Pagination({ countriesPerPage, totalCountries }) {
       <Button onClick={() => handlePrev(currentPage)}>
         <RiArrowDropLeftLine />
       </Button>
-      <div className="flex items-center justify-center gap-8 w-[460px]">
+      <div className="flex w-[460px] items-center justify-center gap-8">
         {currentPages.map((num) =>
           currentPage === num ? (
             <span
-              className="grid w-16 text-2xl font-bold border-4 aspect-square dark:text-lightGray-800 border-lightGray-900 place-items-center dark:border-lightGray-700"
+              className="grid aspect-square w-16 place-items-center border-4 border-lightGray-900 text-2xl font-bold dark:border-lightGray-700 dark:text-lightGray-800"
               key={num}
             >
               {num}
             </span>
           ) : (
             <span
-              className="grid text-2xl font-bold border-4 w-14 aspect-square dark:text-lightGray-700 border-darkBlue-700 place-items-center dark:border-lightGray-900"
+              className="grid aspect-square w-14 place-items-center border-4 border-darkBlue-700 text-2xl font-bold dark:border-lightGray-900 dark:text-lightGray-700"
               key={num}
             >
               {num}

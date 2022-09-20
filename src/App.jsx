@@ -12,7 +12,7 @@ function App() {
     <CountriesProvider>
       <Router>
         <div
-          className={`min-h-screen font-nuito flex flex-col bg-darkBlue-800 justify-center ${
+          className={`flex min-h-screen flex-col justify-center bg-darkBlue-800 font-nuito ${
             darkMode && 'dark'
           }`}
         >
