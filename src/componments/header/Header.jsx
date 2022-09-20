@@ -3,11 +3,11 @@ import { DarkTheme, LightTheme } from './Theme';
 
 function HeaderBar({ onClick, isDark }) {
   return (
-    <header className="bg-lightGray-700 py-16 text-darkBlue-900 dark:bg-darkBlue-700 dark:text-lightGray-700">
+    <header className="bg-lightGray-700 py-8 text-darkBlue-900 dark:bg-darkBlue-700 dark:text-lightGray-700 lg:py-16">
       <div className="mx-auto flex w-11/12 max-w-7xl items-center justify-between">
         <h1
           data-testid="heading"
-          className="text-[20px] font-semibold md:text-[30px]"
+          className="text-[20px] font-bold md:text-[30px]"
         >
           Where in the world?
         </h1>
