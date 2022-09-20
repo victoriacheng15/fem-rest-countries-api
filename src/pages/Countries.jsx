@@ -4,9 +4,11 @@ import CountriesContext from '../context/CountriesContext';
 import Pagination from '../componments/pagination/Pagination';
 import Spinner from '../componments/countries/Spinner';
 import Form from '../componments/form/Form';
+import PaginationContext from '../context/PaginationContext';
 
-function Countries({ countriesList }) {
-  const { loading, list, countriesPerPage } = useContext(CountriesContext);
+function Countries() {
+  const { loading, list } = useContext(CountriesContext);
+  const { countriesPerPage, currentCountries } = useContext(PaginationContext);
 
   if (loading) return <Spinner />;
 
@@ -14,7 +16,7 @@ function Countries({ countriesList }) {
     <>
       <Form />
       <section className="my-12 flex h-max flex-wrap items-center justify-around gap-8">
-        {countriesList.map(
+        {currentCountries.map(
           ({ name, capital, region, flags, population, cca3 }) => (
             <CountryCard
               key={name.common}
