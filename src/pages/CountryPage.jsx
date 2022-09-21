@@ -3,8 +3,8 @@ import { Link, useParams } from 'react-router-dom';
 import { IoArrowBackOutline } from 'react-icons/io5';
 import useFetchCountry from '../hook/useFetchCountry';
 import Spinner from '../componments/CountryCard/Spinner';
-import Paragraph from '../componments/Paragraph';
 import Container from '../componments/Container';
+import Paragraph from '../componments/Paragraph';
 
 function CountryPage() {
   const { code } = useParams();

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { IoSearchSharp } from 'react-icons/io5';
 import CountriesContext from '../../context/CountriesContext';
 
-function InputElement() {
+function SearchBar() {
   const { searchTerm, handleSearch } = useContext(CountriesContext);
 
   return (
@@ -19,4 +19,4 @@ function InputElement() {
   );
 }
 
-export default InputElement;
+export default SearchBar;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function CountryCard({
   name,
-  dataName,
+  alphaCode,
   alt,
   countryCaptial,
   region,
@@ -13,7 +13,7 @@ function CountryCard({
   return (
     <Link
       className="grow-1 flex h-[375px] basis-72 flex-col gap-4 overflow-hidden rounded-lg bg-lightGray-800 shadow-lg shadow-gray-600 dark:bg-darkBlue-700 dark:shadow-gray-600"
-      to={`/country/${dataName}`}
+      to={`/country/${alphaCode}`}
     >
       <article>
         <img src={flags} alt={alt} className="object-fit h-[180px] w-full" />

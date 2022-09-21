@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { RiArrowDropLeftLine, RiArrowDropRightLine } from 'react-icons/ri';
-import Button from '../Button';
 import PaginationContext from '../../context/PaginationContext';
+import Button from '../Button';
 
 function Pagination() {
   const { currentPage, displayPages, handleNext, handlePrev } =
