@@ -6,8 +6,4 @@
   .outline-style {
     @apply outline-1 outline-dashed hover:outline-2 focus:outline-2 dark:outline-lightGray-800;
   }
-
-  .card-text {
-    @apply py-1 text-sm font-semibold text-darkBlue-900 dark:text-lightGray-700;
-  }
 }
