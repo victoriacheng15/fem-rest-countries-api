@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import CountryCard from '../componments/CountryCard';
 import CountriesContext from '../context/CountriesContext';
-import Pagination from '../componments/Pagination';
+import PaginationContext from '../context/PaginationContext';
 import Spinner from '../componments/CountryCard/Spinner';
 import Form from '../componments/Form';
-import PaginationContext from '../context/PaginationContext';
+import Pagination from '../componments/Pagination';
 
 function Countries() {
   const { loading } = useContext(CountriesContext);
@@ -20,7 +20,7 @@ function Countries() {
           ({ name, capital, region, flags, population, cca3 }) => (
             <CountryCard
               key={name.common}
-              dataName={cca3}
+              alphaCode={cca3}
               name={name.official}
               countryCaptial={capital || 'N/A'}
               region={region}
