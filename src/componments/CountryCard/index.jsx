@@ -13,7 +13,7 @@ function CountryCard({
 }) {
   return (
     <Link
-      className="flex h-[385px] basis-72 flex-col gap-4 overflow-hidden rounded-lg bg-lightGray-800 shadow-lg shadow-gray-600 dark:bg-darkBlue-700 dark:shadow-gray-600"
+      className="flex h-[400px] basis-72 flex-col gap-4 overflow-hidden rounded-lg bg-lightGray-800 shadow-lg shadow-gray-600 duration-300 ease-in-out hover:scale-110 dark:bg-darkBlue-700 dark:shadow-gray-600"
       to={`/country/${alphaCode}`}
     >
       <article>
