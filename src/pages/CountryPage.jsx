@@ -43,7 +43,7 @@ function CountryPage() {
         }) => (
           <section
             key={name.common}
-            className="mt-20 flex w-full flex-col justify-center gap-10 lg:flex-row"
+            className="mt-20 flex w-full flex-col justify-center gap-8 md:flex-row lg:gap-12"
           >
             <img
               className="w-full max-w-[550px] flex-1 border-2 border-lightGray-900"
@@ -51,7 +51,7 @@ function CountryPage() {
               alt={name.common}
             />
             <div className="flex-1">
-              <h2 className="my-5 text-xl font-bold text-darkBlue-900 dark:text-lightGray-800 lg:text-2xl">
+              <h2 className="my-5 text-xl font-bold text-darkBlue-900 dark:text-lightGray-800 lg:text-4xl">
                 {name.common}
               </h2>
               <div className="lg:flex lg:justify-between lg:gap-4">
@@ -84,16 +84,16 @@ function CountryPage() {
                 </Container>
               </div>
               <div className="flex flex-col gap-3 py-5">
-                <h3 className="text-xl font-semibold text-darkBlue-900 dark:text-lightGray-800">
+                <h3 className="text-xl font-semibold text-darkBlue-900 dark:text-lightGray-800 lg:text-2xl">
                   Border Countries:
                 </h3>
-                <section className="flex flex-wrap items-center gap-4 text-darkBlue-900 dark:text-lightGray-800">
+                <section className="flex flex-wrap items-center gap-8 text-darkBlue-900 dark:text-lightGray-800">
                   {borders
                     ? borders.map((border) => (
                         <Link
                           to={`/country/${border}`}
                           key={border}
-                          className="bg-lightGray-800 py-1 px-3 text-lg shadow-md shadow-darkBlue-900 dark:bg-darkBlue-900 dark:text-lightGray-800 dark:shadow-lightGray-900"
+                          className="bg-lightGray-800 py-2 px-3 text-lg shadow-md shadow-darkBlue-900 duration-300 ease-in-out hover:scale-125 dark:bg-darkBlue-900 dark:text-lightGray-800 dark:shadow-lightGray-900 lg:text-2xl"
                         >
                           {getBorderName(border)}
                         </Link>
