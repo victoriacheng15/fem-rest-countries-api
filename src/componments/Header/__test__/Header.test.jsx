@@ -1,20 +1,29 @@
 import React from 'react';
-import { beforeEach, describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import HeaderBar from '../Header';
+import userEvent from '@testing-library/user-event';
+import { vi } from 'vitest';
+import HeaderBar from '../index';
 
-describe('header', () => {
+describe('App Compomnet', () => {
   beforeEach(() => {
     render(<HeaderBar />);
   });
 
-  it('should have the h1 in the page', () => {
-    const heading = screen.getByText(/where in the world?/i);
-    expect(heading).toBeInTheDocument();
+  it('should renders the h1 heading', () => {
+    const heading = screen.getByRole('heading');
+    expect(heading).toHaveTextContent(/where in the world/i);
   });
 
-  it('should have the textContent "Where in the world?"', () => {
-    const heading = screen.getByTestId('heading');
-    expect(heading).toHaveTextContent('Where in the world?');
+  it('should show light mode', () => {
+    const button = screen.getByRole('button');
+    expect(button).toHaveTextContent(/light mode/i);
   });
+
+  // it('should show light mode', async () => {
+  //   const user = userEvent.setup();
+  //   const button = screen.getByRole('button');
+  //   // const darkMode = screen.findByText(/dark mode/i);
+  //   await user.click(button);
+  //   expect(await screen.queryByRole('button')).toHaveTextContent('dark mode');
+  // });
 });
