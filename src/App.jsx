@@ -13,11 +13,7 @@ function App() {
     <CountriesProvider>
       <PaginationProvider>
         <Router>
-          <div
-            className={`flex min-h-screen flex-col justify-between font-nuito ${
-              darkMode && 'dark'
-            }`}
-          >
+          <div className={`min-h-screen font-nuito ${darkMode && 'dark'}`}>
             <HeaderBar onClick={setDarkMode} isDark={darkMode} />
             <Main />
             <Footer />
