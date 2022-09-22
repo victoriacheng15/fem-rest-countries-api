@@ -15,7 +15,7 @@ function Countries() {
   return (
     <>
       <Form />
-      <section className="my-12 flex h-max flex-wrap items-center justify-around gap-8">
+      <section className="my-12 flex flex-wrap items-center justify-around gap-8">
         {currentCountries.map(
           ({ name, capital, region, flags, population, cca3 }) => (
             <CountryCard
