@@ -14,7 +14,7 @@ function App() {
       <PaginationProvider>
         <Router>
           <div
-            className={`flex min-h-screen flex-col justify-center bg-darkBlue-800 font-nuito ${
+            className={`flex min-h-screen flex-col justify-between font-nuito ${
               darkMode && 'dark'
             }`}
           >
