@@ -1,24 +1,26 @@
 import React, { useContext } from 'react';
-import CountryCard from '../componments/countries/CountryCard';
+import CountryCard from '../componments/CountryCard';
 import CountriesContext from '../context/CountriesContext';
-import Pagination from '../componments/pagination/Pagination';
-import Spinner from '../componments/countries/Spinner';
-import Form from '../componments/form/Form';
+import PaginationContext from '../context/PaginationContext';
+import Spinner from '../componments/CountryCard/Spinner';
+import Form from '../componments/Form';
+import Pagination from '../componments/Pagination';
 
-function Countries({ countriesList }) {
-  const { loading, list, countriesPerPage } = useContext(CountriesContext);
+function Countries() {
+  const { loading } = useContext(CountriesContext);
+  const { currentCountries } = useContext(PaginationContext);
 
   if (loading) return <Spinner />;
 
   return (
     <>
       <Form />
-      <section className="flex flex-wrap items-center justify-around gap-8 my-12 h-max">
-        {countriesList.map(
+      <section className="my-12 flex flex-wrap items-center justify-around gap-8">
+        {currentCountries.map(
           ({ name, capital, region, flags, population, cca3 }) => (
             <CountryCard
               key={name.common}
-              dataName={cca3}
+              alphaCode={cca3}
               name={name.official}
               countryCaptial={capital || 'N/A'}
               region={region}
@@ -29,10 +31,7 @@ function Countries({ countriesList }) {
           )
         )}
       </section>
-      <Pagination
-        countriesPerPage={countriesPerPage}
-        totalCountries={list.length}
-      />
+      <Pagination />
     </>
   );
 }
