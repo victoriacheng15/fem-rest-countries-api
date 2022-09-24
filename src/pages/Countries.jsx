@@ -17,10 +17,10 @@ function Countries() {
       <Form />
       <section className="my-12 flex flex-wrap items-center justify-around gap-8">
         {currentCountries.map(
-          ({ name, capital, region, flags, population, cca3 }) => (
+          ({ name, capital, region, flags, population, cca2 }) => (
             <CountryCard
               key={name.common}
-              alphaCode={cca3}
+              alphaCode={cca2}
               name={name.official}
               countryCaptial={capital || 'N/A'}
               region={region}
