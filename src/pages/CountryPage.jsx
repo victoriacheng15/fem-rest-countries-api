@@ -45,11 +45,13 @@ function CountryPage() {
             key={name.common}
             className="mt-20 flex w-full flex-col justify-center gap-8 md:flex-row lg:gap-12"
           >
-            <img
-              className="w-full max-w-[550px] flex-1 border-2 border-lightGray-900"
-              src={flags.png}
-              alt={name.common}
-            />
+            <div className="grid w-full flex-1 place-items-center">
+              <img
+                className="w-full border-2 border-lightGray-900"
+                src={flags.png}
+                alt={`flag of ${name.common}`}
+              />
+            </div>
             <div className="flex-1">
               <h2 className="my-5 text-xl font-bold text-darkBlue-900 dark:text-lightGray-800 lg:text-4xl">
                 {name.common}
@@ -87,13 +89,13 @@ function CountryPage() {
                 <h3 className="text-xl font-semibold text-darkBlue-900 dark:text-lightGray-800 lg:text-2xl">
                   Border Countries:
                 </h3>
-                <section className="flex flex-wrap items-center gap-8 text-darkBlue-900 dark:text-lightGray-800">
+                <section className="flex flex-wrap items-center gap-6 text-darkBlue-900 dark:text-lightGray-800">
                   {borders
                     ? borders.map((border) => (
                         <Link
                           to={`/country/${border}`}
                           key={border}
-                          className="bg-lightGray-800 py-2 px-3 text-lg shadow-md shadow-darkBlue-900 duration-300 ease-in-out hover:scale-125 dark:bg-darkBlue-900 dark:text-lightGray-800 dark:shadow-lightGray-900 lg:text-2xl"
+                          className="rounded-lg bg-lightGray-800 py-2 px-3 text-lg font-medium shadow-md shadow-darkBlue-900 duration-300 ease-in-out hover:scale-125 dark:bg-darkBlue-900 dark:text-lightGray-800 dark:shadow-lightGray-900 lg:text-xl"
                         >
                           {getBorderName(border)}
                         </Link>
