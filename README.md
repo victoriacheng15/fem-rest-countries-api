@@ -63,7 +63,7 @@ Users should be able to:
 
 ### Links
 
-- [Add solution URL here](https://your-solution-url.com)
+- [Frontend Mentor Solution](https://www.frontendmentor.io/solutions/rest-countries-api-app-using-react-and-tailwind-css-UmYlY2vzaB)
 - [Live Site](https://fem-rest-countries-api-vc.vercel.app/)
 
 ## My process
