@@ -92,7 +92,7 @@ A few things that I could improve:
 
 <hr>
 
-`useReducer` - this hook is pretty interested to use. I have not gone deep on this hook yet, but I tried this little trick and use `darkMode` as example. With `useState` hook, it needs to have 2 lines of code to make the button toggle-able. While, `useReducer` hook only needs 1 line of code. Since it has a few lines of code and don't really see huge different. I did this for curiosity. However, if the codebase has many `useState` hooks, I think it definitely is worth to use `useReducer` instead. 
+`useReducer` - this hook is pretty interested to use. I have not gone deep on this hook yet, but I tried this little trick and use `darkMode` as example. With `useState` hook, it needs to have 2 lines of code to make the button toggle-able. While, `useReducer` hook only needs 1 line of code. Since the code for set dark mode only has a very few lines of code and don't really see huge difference. I did this for curiosity. However, if there are alot of `useState` hooks, I think it definitely is worth to use `useReducer` instead. 
 
 <details close>
 <summary>useState version</summary>
@@ -135,28 +135,30 @@ const [darkMode, setDarkMode] = useReducer((prevMode) => !prevMode, false);
 
 `useConext` - this hook is pretty awesome and nice. You can move your `useState` hooks and functions to context file(s), and keep the codebase clean in the component files. This helps me to avoid props drilling and I sometimes get confused about names that I pass through props. I also attached 2 links to the pull request that I moved `useState` hooks and functions to context folder. 
 
-I originally had everything in one context file - `CountriesContext.jsx`, but the codebase doesn't look pretty due to long list inside value and mixed of countries and pagination related `useState` hooks. I decided to move `Pagination` related `useState` and `functions` to `PaginationConext.jsx`.
+I originally had everything from countries and pagination related in one useContext file `countriesConext.jsx`. It made the value to have a long list and it could be difficult to see which is which. I decided to split `useState` and functions into 2 categories, `countriesConext` and `paginationConext` for organization and maintainability.  
+
+The code blocks below shows what are they looking like before and after. The difference is huge and the Pagination componment looks cleaner.
 
 <details close>
 <summary>the Pagination codebase - before</summary>
 
 ```js
-function Pagination() {
-  const [countriesPerPage] = useState(12);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [startPage, setStartPage] = useState(0);
-  const [endPage, setEndPage] = useState(5);
+function Pagination({ countriesPerPage, totalCountries }) {
+  const {
+    currentPage,
+    setCurrentPage,
+    startPage,
+    setStartPage,
+    endPage,
+    setEndPage,
+  } = useContext(CountriesContext);
 
-  const idxOfLastCountries = currentPage * countriesPerPage;
-  const idxOfFirstCountries = idxOfLastCountries - countriesPerPage;
-  const currentCountries = list.slice(idxOfFirstCountries, idxOfLastCountries);
-
-  const totalPages = Math.ceil(list.length / countriesPerPage); // 21
+  const totalPages = Math.ceil(totalCountries / countriesPerPage); // 21
   const pageNumbers = [...new Array(totalPages + 1).keys()].slice(1);
-  const displayPages = pageNumbers.slice(startPage, endPage);
+  const currentPages = pageNumbers.slice(startPage, endPage);
 
   const handleNext = (page) => {
-    const FIVE = displayPages.length;
+    const FIVE = currentPages.length;
     const condition = page <= Math.floor(FIVE / 2);
     if (condition) {
       setCurrentPage(page + 1);
@@ -184,7 +186,7 @@ function Pagination() {
 
   return (
     <section className="flex items-center justify-center gap-4">
-      {/* remove for display purpose */}
+       {/* ....... */}
     </section>
   );
 }
@@ -205,7 +207,7 @@ function Pagination() {
 
   return (
     <section className="flex items-center justify-center gap-4">
-      {/* remove for display purpose */}
+      {/* ....... */}
     </section>
   );
 }
@@ -232,7 +234,7 @@ A couple of things that I would like to add for the future:
 - [Commit Message Format](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit)
   - This has helped me how to organize my commit messages based on the type (e.g. build, feat, docs, fix...etc.)
 - [How to Write Better Git Commit Messages – A Step-By-Step Guide](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/)
-  - This has helped me how to organize my commit messages based on the type (e.g. build, feat, docs, fix...etc.)
+  - Similar as `Commit Mesage Format` above, but it has 2 extra types, `chore` and `style`
 
 
 ## Author
@@ -245,5 +247,5 @@ A couple of things that I would like to add for the future:
 
 ## Acknowledgments
 
-As always, a huge thank you to Frontend Mentor for providing this opportunity to allow me to practice `React` and went deep div into `React Router` and `useContext` hook.
+As always, a huge thank you to Frontend Mentor for providing this opportunity to allow me to practice more `React`, `Tailwind CSS` and deep div into `React Router` and `useContext` hook.
 
