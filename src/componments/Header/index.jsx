@@ -3,7 +3,7 @@ import { DarkTheme, LightTheme } from './Theme';
 
 function HeaderBar({ onClick, isDark }) {
   return (
-    <header className="bg-lightGray-700 py-6 text-darkBlue-900 dark:bg-darkBlue-700 dark:text-lightGray-700 lg:py-12">
+    <header className="bg-lightGray-700 py-12 text-darkBlue-900 dark:bg-darkBlue-700 dark:text-lightGray-700 md:py-8">
       <div className="mx-auto flex w-11/12 max-w-7xl items-center justify-between">
         <h1
           data-testid="heading"
