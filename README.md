@@ -231,6 +231,8 @@ A couple of things that I would like to add for the future:
   - This helps me to see how I can combine `useState` hooks into one `useReducer`
 - [Commit Message Format](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit)
   - This has helped me how to organize my commit messages based on the type (e.g. build, feat, docs, fix...etc.)
+- [How to Write Better Git Commit Messages – A Step-By-Step Guide](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/)
+  - This has helped me how to organize my commit messages based on the type (e.g. build, feat, docs, fix...etc.)
 
 
 ## Author
