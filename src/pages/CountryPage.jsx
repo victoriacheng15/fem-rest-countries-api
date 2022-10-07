@@ -1,11 +1,16 @@
 import React, { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { IoArrowBackOutline } from 'react-icons/io5';
 import useFetchCountry from '../hook/useFetchCountry';
 import CountriesContext from '../context/CountriesContext';
-import Spinner from '../componments/CountryCard/Spinner';
-import Container from '../componments/Container';
-import Paragraph from '../componments/Paragraph';
+import {
+  BackHome,
+  Paragraph,
+  Spinner,
+  FlagImage,
+  Heading2,
+  Heading3,
+} from '../componments';
+import { ParaContainer } from '../layouts';
 
 function CountryPage() {
   const { code } = useParams();
@@ -23,11 +28,7 @@ function CountryPage() {
 
   return (
     <>
-      <Link to="/">
-        <div className="inline-flex items-center gap-4 rounded-lg border-2 border-gray-600 p-2 font-semibold text-darkBlue-900 duration-300 ease-in-out hover:bg-darkBlue-900 hover:text-lightGray-700 dark:border-gray-300  dark:text-lightGray-800 dark:hover:bg-lightGray-700 dark:hover:text-darkBlue-700">
-          <IoArrowBackOutline /> back
-        </div>
-      </Link>
+      <BackHome />
       {country.map(
         ({
           flags,
@@ -45,19 +46,11 @@ function CountryPage() {
             key={name.common}
             className="mt-20 flex w-full flex-col justify-center gap-8 md:flex-row lg:gap-12"
           >
-            <div className="grid w-full flex-1 place-items-center">
-              <img
-                className="w-full border-2 border-lightGray-900"
-                src={flags.png}
-                alt={`flag of ${name.common}`}
-              />
-            </div>
+            <FlagImage src={flags.png} alt={`flag of ${name.common}`} />
             <div className="flex-1">
-              <h2 className="my-5 text-xl font-bold text-darkBlue-900 dark:text-lightGray-800 lg:text-4xl">
-                {name.common}
-              </h2>
+              <Heading2 title={name.common} />
               <div className="lg:flex lg:justify-between lg:gap-4">
-                <Container>
+                <ParaContainer compType="CountryPage">
                   <Paragraph
                     title="population"
                     content={population.toLocaleString()}
@@ -65,8 +58,8 @@ function CountryPage() {
                   <Paragraph title="region" content={region} />
                   <Paragraph title="sub region" content={subregion} />
                   <Paragraph title="capital" content={capital} />
-                </Container>
-                <Container>
+                </ParaContainer>
+                <ParaContainer compType="CountryPage">
                   <Paragraph
                     title="top level domain"
                     content={tld.map((elm) => elm).join(', ')}
@@ -83,12 +76,10 @@ function CountryPage() {
                       .map((lang) => lang)
                       .join(', ')}
                   />
-                </Container>
+                </ParaContainer>
               </div>
               <div className="flex flex-col gap-3 py-5">
-                <h3 className="text-xl font-semibold text-darkBlue-900 dark:text-lightGray-800 lg:text-2xl">
-                  Border Countries:
-                </h3>
+                <Heading3 title="Border Countries:" />
                 <section className="flex flex-wrap items-center gap-6 text-darkBlue-900 dark:text-lightGray-800">
                   {borders
                     ? borders.map((border) => (
