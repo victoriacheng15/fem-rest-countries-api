@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Paragraph from '../Paragraph';
+import { Paragraph } from '..';
+import { ParaContainer } from '../../layouts';
 
 function CountryCard({
   name,
@@ -22,7 +23,7 @@ function CountryCard({
           <h2 className="my-2 text-lg font-extrabold text-darkBlue-900 dark:text-lightGray-800">
             {name}
           </h2>
-          <div className="flex flex-col gap-2">
+          <ParaContainer compType="CountryCard">
             <Paragraph
               countryCard
               title="population"
@@ -30,7 +31,7 @@ function CountryCard({
             />
             <Paragraph countryCard title="Region" content={region} />
             <Paragraph countryCard title="Captial" content={countryCaptial} />
-          </div>
+          </ParaContainer>
         </div>
       </article>
     </Link>
