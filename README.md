@@ -1,10 +1,10 @@
-# Frontend Mentor - REST Countries API with color theme switcher solution
+# REST Countries API with color theme switcher
 
 This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
 ## Table of contents
 
-- [Frontend Mentor - REST Countries API with color theme switcher solution](#frontend-mentor---rest-countries-api-with-color-theme-switcher-solution)
+- [REST Countries API with color theme switcher](#rest-countries-api-with-color-theme-switcher)
   - [Table of contents](#table-of-contents)
   - [Overview](#overview)
     - [The challenge](#the-challenge)
@@ -16,7 +16,6 @@ This is a solution to the [REST Countries API with color theme switcher challeng
   - [My process](#my-process)
     - [Built with](#built-with)
     - [What I learned](#what-i-learned)
-      - [Links to the PRs](#links-to-the-prs)
     - [Continued development](#continued-development)
     - [Useful resources](#useful-resources)
   - [Author](#author)
@@ -198,9 +197,6 @@ function Pagination({ countriesPerPage, totalCountries }) {
 <summary>the Pagination codebase - after</summary>
 
 ```js
-import React, { useContext } from 'react';
-import PaginationContext from '../../context/PaginationContext';
-
 function Pagination() {
   const { currentPage, displayPages, handleNext, handlePrev } =
     useContext(PaginationContext);
@@ -215,10 +211,15 @@ function Pagination() {
 
 </details>
 
-#### Links to the PRs
+**The code before useContext**
 
-- [Main.jsx - pre-context (pull request #19)](https://github.com/victoriacheng15/fem-rest-countries-api/pull/19/files)
-- [Pagination.jsx - pre-context (pull request #29)](https://github.com/victoriacheng15/fem-rest-countries-api/pull/29)
+- [Main.jsx](https://github.com/victoriacheng15/fem-rest-countries-api/blob/c59f8d73045adb4409d4dce531dfaa2c67c7ae96/src/componments/main/Main.jsx)
+- [Pagination.jsx](https://github.com/victoriacheng15/fem-rest-countries-api/blob/c59f8d73045adb4409d4dce531dfaa2c67c7ae96/src/componments/pagination/Pagination.jsx)
+
+**The code after useContext**
+
+- [Main.jsx](https://github.com/victoriacheng15/fem-rest-countries-api/blob/main/src/componments/Main/index.jsx)
+- [Pagination.jsx](https://github.com/victoriacheng15/fem-rest-countries-api/blob/main/src/componments/Pagination/index.jsx)
 
 ### Continued development
 
