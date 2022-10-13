@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Countries, CountryPage } from '../../pages';
+import { Countries, CountryPage, ErrorPage } from '../../pages';
 import { MaxWidthContainer } from '../../layouts';
 
 function Main() {
@@ -10,6 +10,7 @@ function Main() {
         <Routes>
           <Route path="/" element={<Countries />} />
           <Route path="/country/:code" element={<CountryPage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </MaxWidthContainer>
     </main>
