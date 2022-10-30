@@ -9,26 +9,27 @@ import {
   FlagImage,
   Heading2,
   Heading3,
-} from '../componments';
+} from '../components';
 import { ParaContainer } from '../layouts';
+import { ErrorPage } from '.';
 
 function CountryPage() {
   const { code } = useParams();
-  const { country, loading } = useFetchCountry(code);
+  const { country, error, loading } = useFetchCountry(code);
   const { list } = useContext(CountriesContext);
-  const getInput = (input) => Object.values(input);
 
+  const getInput = (input) => Object.values(input);
   const getBorderName = (border) => {
     const getName = list.filter(({ cca3 }) => cca3.includes(border));
 
     return getName.map(({ name }) => name.common)[0];
   };
 
-  if (loading) return <Spinner />;
-
   return (
     <>
       <BackHome />
+      {error && <ErrorPage />}
+      {loading && <Spinner />}
       {country.map(
         ({
           flags,
