@@ -4,7 +4,7 @@ import useFetchCountries from '../hook/useFetchCountries';
 const CountriesContext = createContext();
 
 export function CountriesProvider({ children }) {
-  const { countries, loading, list, setList } = useFetchCountries();
+  const { countries, loading, error, list, setList } = useFetchCountries();
   // form
   const [searchTerm, setSearchTerm] = useState('');
   const [selectRegion, setSelectRegion] = useState('');
@@ -33,6 +33,7 @@ export function CountriesProvider({ children }) {
       value={{
         loading,
         list,
+        error,
         searchTerm,
         selectRegion,
         handleSearch,
