@@ -1,8 +1,8 @@
 import React, { useReducer } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import HeaderBar from './componments/Header';
-import Main from './componments/Main';
-import Footer from './componments/Footer';
+import HeaderBar from './components/Header';
+import Main from './components/Main';
+import Footer from './components/Footer';
 import { CountriesProvider } from './context/CountriesContext';
 import { PaginationProvider } from './context/PaginationContext';
 

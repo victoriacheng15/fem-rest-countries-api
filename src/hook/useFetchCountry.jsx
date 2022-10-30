@@ -4,18 +4,25 @@ import url from './fetchUrls';
 const useFetchCountry = (code) => {
   const [country, setCountry] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    (async function () {
-      const address = `${url.alphaCode}${code}`;
+    const fetchCountry = async () => {
       setLoading(true);
-      const data = await (await fetch(address)).json();
-      setCountry(data);
+      try {
+        const address = `${url.alphaCode}${code}`;
+        const data = await (await fetch(address)).json();
+        setCountry(data);
+      } catch (err) {
+        setError(err);
+      }
       setLoading(false);
-    })();
+    };
+
+    fetchCountry();
   }, [code]);
 
-  return { country, loading };
+  return { country, error, loading };
 };
 
 export default useFetchCountry;
