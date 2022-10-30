@@ -9,7 +9,7 @@ import {
   FlagImage,
   Heading2,
   Heading3,
-} from '../componments';
+} from '../components';
 import { ParaContainer } from '../layouts';
 
 function CountryPage() {

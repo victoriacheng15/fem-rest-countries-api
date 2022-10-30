@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import CountriesContext from '../context/CountriesContext';
 import PaginationContext from '../context/PaginationContext';
-import { CountryCard, Form, Pagination, Spinner } from '../componments';
+import { CountryCard, Form, Pagination, Spinner } from '../components';
 
 function Countries() {
   const { loading } = useContext(CountriesContext);

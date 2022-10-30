@@ -1,5 +1,5 @@
 import React from 'react';
-import { BackHome } from '../componments';
+import { BackHome } from '../components';
 
 function ErrorPage() {
   return (
