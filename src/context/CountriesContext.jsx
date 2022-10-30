@@ -5,7 +5,6 @@ const CountriesContext = createContext();
 
 export function CountriesProvider({ children }) {
   const { countries, loading, error, list, setList } = useFetchCountries();
-  // form
   const [searchTerm, setSearchTerm] = useState('');
   const [selectRegion, setSelectRegion] = useState('');
 
