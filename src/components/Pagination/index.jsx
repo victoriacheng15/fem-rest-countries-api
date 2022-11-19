@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { RiArrowDropLeftLine, RiArrowDropRightLine } from 'react-icons/ri';
 import { Button } from '..';
-import PaginationContext from '../../context/PaginationContext';
+import { usePaginationContext } from '../../context/PaginationContext';
 import DisplayNumber from './DisplayNumber';
 
 function Pagination() {
   const { currentPage, displayPages, handleNext, handlePrev } =
-    useContext(PaginationContext);
+    usePaginationContext();
 
   return (
     <section className="flex items-center justify-center gap-4">

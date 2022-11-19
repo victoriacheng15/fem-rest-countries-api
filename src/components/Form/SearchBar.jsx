@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { IoSearchSharp } from 'react-icons/io5';
-import CountriesContext from '../../context/CountriesContext';
+import { useCountriesContext } from '../../context/CountriesContext';
 
 function SearchBar() {
-  const { searchTerm, handleSearch } = useContext(CountriesContext);
+  const { searchTerm, handleSearch } = useCountriesContext();
 
   return (
     <div className="relative flex items-center rounded-lg bg-lightGray-700 dark:bg-darkBlue-700">

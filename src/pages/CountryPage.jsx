@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import useFetchCountry from '../hook/useFetchCountry';
-import CountriesContext from '../context/CountriesContext';
+import { useCountriesContext } from '../context/CountriesContext';
 import {
   BackHome,
   Paragraph,
@@ -16,7 +16,7 @@ import { ErrorPage } from '.';
 function CountryPage() {
   const { code } = useParams();
   const { country, error, loading } = useFetchCountry(code);
-  const { list } = useContext(CountriesContext);
+  const { list } = useCountriesContext();
 
   const getInput = (input) => Object.values(input);
   const getBorderName = (border) => {

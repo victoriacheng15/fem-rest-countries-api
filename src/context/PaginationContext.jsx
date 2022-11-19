@@ -1,10 +1,10 @@
 import React, { createContext, useState, useContext } from 'react';
-import CountriesContext from './CountriesContext';
+import { useCountriesContext } from './CountriesContext';
 
 const PaginationContext = createContext();
 
 export function PaginationProvider({ children }) {
-  const { list } = useContext(CountriesContext);
+  const { list } = useCountriesContext();
 
   const [countriesPerPage] = useState(12);
   const [currentPage, setCurrentPage] = useState(1);
@@ -62,4 +62,6 @@ export function PaginationProvider({ children }) {
   );
 }
 
-export default PaginationContext;
+export function usePaginationContext() {
+  return useContext(PaginationContext);
+}
