@@ -1,7 +1,9 @@
 import React, { useReducer } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import HeaderBar from './components/Header';
-import Main from './components/Main';
+import { Countries, CountryPage, ErrorPage } from './pages';
 import Footer from './components/Footer';
+import { MaxWidthContainer } from './layouts';
 import { CountriesProvider } from './context/CountriesContext';
 import { PaginationProvider } from './context/PaginationContext';
 
@@ -13,7 +15,15 @@ function App() {
       <PaginationProvider>
         <div className={`min-h-screen font-nuito ${darkMode && 'dark'}`}>
           <HeaderBar onClick={setDarkMode} isDark={darkMode} />
-          <Main />
+          <main className="min-h-screen bg-lightGray-800 py-12 dark:bg-darkBlue-800">
+            <MaxWidthContainer>
+              <Routes>
+                <Route path="/" element={<Countries />} />
+                <Route path="/country/:code" element={<CountryPage />} />
+                <Route path="*" element={<ErrorPage />} />
+              </Routes>
+            </MaxWidthContainer>
+          </main>
           <Footer />
         </div>
       </PaginationProvider>
