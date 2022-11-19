@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import CountriesContext from '../context/CountriesContext';
-import PaginationContext from '../context/PaginationContext';
+import { useCountriesContext } from '../context/CountriesContext';
+import { usePaginationContext } from '../context/PaginationContext';
 import { CountryCard, Form, Pagination, Spinner } from '../components';
 import { ErrorPage } from '.';
 
 function Countries() {
-  const { loading, error } = useContext(CountriesContext);
-  const { currentCountries } = useContext(PaginationContext);
+  const { loading, error } = useCountriesContext();
+  const { currentCountries } = usePaginationContext();
 
   return (
     <>
