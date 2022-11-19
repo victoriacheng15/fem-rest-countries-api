@@ -65,5 +65,3 @@ export function PaginationProvider({ children }) {
 export function usePaginationContext() {
   return useContext(PaginationContext);
 }
-
-export default PaginationContext;
