@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 import useFetchCountries from '../hook/useFetchCountries';
 
 const CountriesContext = createContext();
@@ -44,4 +44,6 @@ export function CountriesProvider({ children }) {
   );
 }
 
-export default CountriesContext;
+export function useCountriesContext() {
+  return useContext(CountriesContext);
+}
