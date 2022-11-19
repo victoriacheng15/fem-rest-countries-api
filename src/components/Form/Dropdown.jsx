@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import CountriesContext from '../../context/CountriesContext';
+import React from 'react';
+import { useCountriesContext } from '../../context/CountriesContext';
 
 function Dropdown() {
-  const { selectRegion, handleSelect } = useContext(CountriesContext);
+  const { selectRegion, handleSelect } = useCountriesContext();
 
   const regions = [
     { id: 0, label: 'Select Region', value: '' },
