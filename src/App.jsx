@@ -1,5 +1,4 @@
 import React, { useReducer } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import HeaderBar from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
@@ -12,13 +11,11 @@ function App() {
   return (
     <CountriesProvider>
       <PaginationProvider>
-        <Router>
-          <div className={`min-h-screen font-nuito ${darkMode && 'dark'}`}>
-            <HeaderBar onClick={setDarkMode} isDark={darkMode} />
-            <Main />
-            <Footer />
-          </div>
-        </Router>
+        <div className={`min-h-screen font-nuito ${darkMode && 'dark'}`}>
+          <HeaderBar onClick={setDarkMode} isDark={darkMode} />
+          <Main />
+          <Footer />
+        </div>
       </PaginationProvider>
     </CountriesProvider>
   );
