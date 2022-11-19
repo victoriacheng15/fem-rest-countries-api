@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React from 'react';
+import { useParams } from 'react-router-dom';
 import useFetchCountry from '../hook/useFetchCountry';
 import { useCountriesContext } from '../context/CountriesContext';
 import {
@@ -9,6 +9,7 @@ import {
   FlagImage,
   Heading2,
   Heading3,
+  BorderButton,
 } from '../components';
 import { ParaContainer } from '../layouts';
 import { ErrorPage } from '.';
@@ -84,13 +85,11 @@ function CountryPage() {
                 <section className="flex flex-wrap items-center gap-6 text-darkBlue-900 dark:text-lightGray-800">
                   {borders
                     ? borders.map((border) => (
-                        <Link
-                          to={`/country/${border}`}
+                        <BorderButton
                           key={border}
-                          className="rounded-lg bg-lightGray-800 py-2 px-3 text-lg font-medium shadow-md shadow-darkBlue-900 duration-300 ease-in-out hover:scale-125 dark:bg-darkBlue-900 dark:text-lightGray-800 dark:shadow-lightGray-900 lg:text-xl"
-                        >
-                          {getBorderName(border)}
-                        </Link>
+                          borderLink={`/country/${border}`}
+                          borderName={getBorderName(border)}
+                        />
                       ))
                     : 'No Border Countries'}
                 </section>

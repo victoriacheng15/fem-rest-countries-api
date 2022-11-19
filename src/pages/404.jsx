@@ -5,10 +5,9 @@ function ErrorPage() {
   return (
     <div className="flex flex-col items-center gap-10 dark:text-lightGray-700">
       <section className="flex flex-col items-center justify-center gap-10">
-        <h2 className="text-5xl font-bold capitalize">whoops!</h2>
-        <h3 className="text-3xl font-semibold capitalize">
-          404 page not found
-        </h3>
+        <h2 className="text-5xl font-bold capitalize">
+          whoops! 404 page not found
+        </h2>
         <p className="text-xl font-semibold">
           Maybe the server or something else is going on vacation...
         </p>

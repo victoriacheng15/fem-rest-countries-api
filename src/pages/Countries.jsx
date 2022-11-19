@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useCountriesContext } from '../context/CountriesContext';
 import { usePaginationContext } from '../context/PaginationContext';
 import { CountryCard, Form, Pagination, Spinner } from '../components';

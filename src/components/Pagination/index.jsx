@@ -18,7 +18,7 @@ function Pagination() {
           currentPage === num ? (
             <DisplayNumber key={num} num={num} />
           ) : (
-            <DisplayNumber key={num} disaplyType="NotCurrentNum" num={num} />
+            <DisplayNumber key={num} displayType="NotCurrentNum" num={num} />
           )
         )}
       </div>
